@@ -10,10 +10,14 @@
   <ion-grid *ngIf="personList">
     <ion-row *ngFor="let person of personList">
       <ion-col>
-        {{person.id}}
+        <app-person-card [person]="person"></app-person-card>
       </ion-col>
     </ion-row>
   </ion-grid>
+
+  <ion-infinite-scroll (ionInfinite)="loadMoreCards($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Cargando más datos..."></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>
 
 <ion-footer>

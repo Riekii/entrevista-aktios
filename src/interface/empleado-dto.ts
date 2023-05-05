@@ -12,14 +12,12 @@ export interface personDTO {
     name:             string;
     surname:          string;
     surname2:         string;
-    sex:              personSexDTO;
+    sex:              string;
+    sexDescription?:   string;
     "country-id":     number;
+    countryDescription?:  string;
+    language?: string;
     phone:            string;
     datebirthday:     Date;
     lastModification: Date;
-}
-
-export enum personSexDTO {
-    H = "H",
-    M = "M",
 }
