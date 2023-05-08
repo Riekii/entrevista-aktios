@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { WsErrorFunction, WsSuccesssFunction } from '../classes/web-service-utils';
 import { populationListDTO } from 'src/interface/empleado-dto';
 import { PeopleDatasource } from 'src/interface/people-datasource-dto';
+import { UtilsService } from '../utils/utils.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,12 +11,13 @@ import { PeopleDatasource } from 'src/interface/people-datasource-dto';
 export class EmpleadosService {
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private utils: UtilsService
   ) { }
 
   // Llamada para recoger a todos los empleados
   public getPopulation(onSuccess: WsSuccesssFunction<populationListDTO>, onError: WsErrorFunction<populationListDTO>) {
-    return this.http.get<populationListDTO>("../assets/json/info-population.json").subscribe(
+    return this.http.get<populationListDTO>("https://storage.googleapis.com/web-aktios/entrevista-tecnica/info-population.json").subscribe(
       resp => {
         if (resp.population) {
           let persons = resp.population.person;
@@ -46,7 +48,7 @@ export class EmpleadosService {
 
   // Llamada para recoger datasource
   public getPopulationDataSource(onSuccess: WsSuccesssFunction<PeopleDatasource>, onError: WsErrorFunction<PeopleDatasource>) {
-    return this.http.get<PeopleDatasource>("../assets/json/datasource.json").subscribe(
+    return this.http.get<PeopleDatasource>("https://storage.googleapis.com/web-aktios/entrevista-tecnica/datasource.json").subscribe(
       resp => {
         if (resp.data) { onSuccess(resp) }
         else { onError(resp, null) }

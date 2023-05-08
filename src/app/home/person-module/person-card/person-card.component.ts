@@ -11,10 +11,13 @@ export class PersonCardComponent  implements OnInit {
 
   @Input('person') person!: personDTO;
 
+  public cardstate!: string;
+
   constructor() { }
 
   ngOnInit() {
-    console.warn(this.person)
   }
+
+
 
 }

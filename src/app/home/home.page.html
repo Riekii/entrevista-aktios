@@ -1,26 +1,34 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Paint&Point S.L.
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
+  <ion-header [translucent]="true">
+    <ion-toolbar>
+      <ion-title>
+        Paint&Point S.L.
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="getPopulation()"
+    placeholder="Buscar por nombre, año, fecha o ubicación"></ion-searchbar>
+
   <ion-grid *ngIf="personList">
     <ion-row *ngFor="let person of personList">
-      <ion-col>
+      <ion-col (click)="openCard(person)">
         <app-person-card [person]="person"></app-person-card>
       </ion-col>
     </ion-row>
   </ion-grid>
 
-  <ion-infinite-scroll (ionInfinite)="loadMoreCards($event)">
-    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Cargando más datos..."></ion-infinite-scroll-content>
+  <ion-infinite-scroll *ngIf="itemsLeft" (ionInfinite)="loadMoreCards($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles"
+      loadingText="Cargando más datos..."></ion-infinite-scroll-content>
   </ion-infinite-scroll>
-</ion-content>
 
-<ion-footer>
-  <ion-toolbar>
-  </ion-toolbar>
-</ion-footer>
+  <ion-footer>
+    <ion-item *ngIf="!itemsLeft" class="ion-no-border no-border-bottom">
+      <ion-label class="ion-no-border no-border-bottom">
+        <p *ngIf="!searching">Mostrando los {{maxItems}} resultados</p>
+        <p *ngIf="searching">Filtrando, {{maxItems}} resultados</p>
+      </ion-label>
+    </ion-item>
+  </ion-footer>
+</ion-content>

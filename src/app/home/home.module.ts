@@ -5,8 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
-import { PersonCardComponent } from './person-card/person-card.component';
-
+import { PersonCardComponent } from './person-module/person-card/person-card.component';
+import { PersonDetailComponent } from './person-module/person-detail/person-detail.component';
 
 
 @NgModule({
@@ -15,10 +15,11 @@ import { PersonCardComponent } from './person-card/person-card.component';
     FormsModule,
     IonicModule,
     HomePageRoutingModule,
-  ],
+  ], 
   declarations: [
     HomePage,
-    PersonCardComponent
+    PersonCardComponent,
+    PersonDetailComponent
   ]
 })
 export class HomePageModule {}
