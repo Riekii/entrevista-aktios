@@ -19,5 +19,6 @@ export interface personDTO {
     language?: string;
     phone:            string;
     datebirthday:     Date;
-    lastModification: Date;
+    lastModification?: Date;
+    photoUrl?: string;
 }

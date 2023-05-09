@@ -34,6 +34,7 @@ export class EmpleadosService {
               person.phone = '+'+country[countryIndex].prefix.toString() + person.phone;
               let languageIndex = language.findIndex(languageList => languageList.key === country[countryIndex].language);
               person.language = language[languageIndex].description;
+              person.photoUrl = '../assets/profiles/'+person.id+'.jpeg';
             });
             onSuccess(resp)
             }, (errData => {

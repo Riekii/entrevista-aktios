@@ -1,4 +1,5 @@
 import { Component, Input, OnInit} from '@angular/core';
+import { UtilsService } from 'src/app/utils/utils.service';
 import { personDTO } from 'src/interface/empleado-dto';
 
 @Component({
@@ -11,9 +12,13 @@ export class PersonCardComponent  implements OnInit {
 
   @Input('person') person!: personDTO;
 
+  public photoSrc = '';
+
   public cardstate!: string;
 
-  constructor() { }
+  constructor(
+    public readonly utils: UtilsService
+  ) { }
 
   ngOnInit() {
   }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { UtilsService } from 'src/app/utils/utils.service';
 import { personDTO } from 'src/interface/empleado-dto';
 
 @Component({
@@ -11,10 +12,12 @@ export class PersonDetailComponent {
   public person!: personDTO;
 
   constructor(
-    private modalCtrl: ModalController 
+    private modalCtrl: ModalController,
+    public readonly utils: UtilsService
   ) {}
 
   ngOnInit() {
+    console.warn(this.person)
   }
 
   dismissModal(){

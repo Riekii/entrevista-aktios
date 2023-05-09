@@ -1,7 +1,7 @@
 <ion-card class="cardAnimated front">
   <ion-card-header>
-    <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
-    <ion-card-title>{{person.name}} {{person.surname}} {{person.surname2}}</ion-card-title>
-    <ion-card-subtitle>{{person.datebirthday | date : "dd/MM/yyyy"}}</ion-card-subtitle>
+    <img alt="Silhouette of mountains" [src]="utils.getImage(person.photoUrl)" />
+    <ion-card-subtitle class="fecha">{{person.datebirthday | date : "dd/MM/yyyy"}}</ion-card-subtitle>
+    <ion-card-title class="nombre">{{person.name}} {{person.surname}} {{person.surname2}}</ion-card-title>
   </ion-card-header>
 </ion-card> 

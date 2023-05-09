@@ -14,4 +14,20 @@ export class UtilsService {
     return dateA.getTime() - dateB.getTime();
   };
 
+  public getImage(url: string | undefined) {
+    const rutaImagen = 'assets/profiles/default.jpeg';
+    const imagen = new Image();
+    if(url){
+      imagen.src = url;
+      if (imagen.complete) {
+        return url;
+      } else {
+        return rutaImagen;
+      }
+    }
+    else{
+      return rutaImagen;
+    }
+  }
+
 }

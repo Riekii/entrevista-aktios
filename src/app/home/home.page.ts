@@ -49,6 +49,7 @@ export class HomePage implements OnInit{
         else{
           this.searching = false;
         }
+        this.maxItems = persons.length;
         this.personList = persons.slice(0, this.offset*this.pageItems);
     },(err: any)=>{
         console.error('Service error: ',err)
@@ -56,13 +57,13 @@ export class HomePage implements OnInit{
   }
 
   // Función para cargar mas cartas
-  loadMoreCards(event: any){
+  loadMoreCards(event?: any){
     if((this.offset*this.pageItems)<this.maxItems){
       this.offset = this.offset+1;
       this.getPopulation();
     }
     else{ this.itemsLeft = false; }
-    event.target.complete();
+    event.target.complete()
   }
 
   // Filtro del array (Normalmente se enviaría al servicio y debería devolverlo filtrado)
