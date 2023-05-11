@@ -14,6 +14,7 @@ export class UtilsService {
     return dateA.getTime() - dateB.getTime();
   };
 
+  // Recupera las fotos de los usuarios. Si no tiene, pone una por fecto
   public getImage(url: string | undefined) {
     const rutaImagen = 'assets/profiles/default.jpeg';
     const imagen = new Image();

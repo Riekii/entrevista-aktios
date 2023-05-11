@@ -43,6 +43,7 @@ export class HomePage implements OnInit{
         this.maxItems = persons.length;
         // Ordena por fecha de cumpleaños
         persons.sort(this.utils.compareBirthday);
+        // Búsqueda de usuario
         if(this.searchTerm){
           persons = this.search(this.searchTerm, persons);
           this.searching = true;
@@ -50,6 +51,7 @@ export class HomePage implements OnInit{
         else{
           this.searching = false;
         }
+        // Si se borran los criterios de busqueda, vuelve a filtrarlo esde 0
         if(!this.searchTerm){
           this.searching = false;
           this.itemsLeft = true;
@@ -63,12 +65,15 @@ export class HomePage implements OnInit{
 
   // Función para cargar mas cartas
   loadMoreCards(event?: any){
-    if((this.offset*this.pageItems)<this.maxItems){
-      this.offset = this.offset+1;
-      this.getPopulation();
-    }
-    else{ this.itemsLeft = false; }
-    event.target.complete()
+    // Timeout de prueba para ver la carga
+    setTimeout(() => {
+      if((this.offset*this.pageItems)<this.maxItems){
+        this.offset = this.offset+1;
+        this.getPopulation();
+      }
+      else{ this.itemsLeft = false; };
+      event.target.complete();
+    }, 400);
   }
 
   // Filtro del array (Normalmente se enviaría al servicio y debería devolverlo filtrado)
@@ -83,6 +88,7 @@ export class HomePage implements OnInit{
       });
   }
 
+  // Abrir el detalle de cada persona
   async openCard(person: personDTO){
     const modal = await this.modalCtrl.create({
       component: PersonDetailComponent,
