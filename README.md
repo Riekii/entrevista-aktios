@@ -2,7 +2,7 @@ Proyecto de entrevista Aktios - Manuel Junquera Martínez
 
 Para arrancar el proyecto:
 > npm i
-Para desplegarlo en local y visualizarlo en el navegador: <br />
+<br />Para desplegarlo en local y visualizarlo en el navegador: <br />
 > ng serve
 
 Si deseas arrancar el proyecto en un emulador o dispositivo android
