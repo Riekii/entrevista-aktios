@@ -1,8 +1,13 @@
-These are Cordova resources. You can replace icon.png and splash.png and run
-`ionic cordova resources` to generate custom icons and splash screens for your
-app. See `ionic cordova resources --help` for details.
+Proyecto de entrevista Aktios - Manuel Junquera Martínez
 
-Cordova reference documentation:
+Para arrancar el proyecto:
+> npm i
+> ng serve
 
-- Icons: https://cordova.apache.org/docs/en/latest/config_ref/images.html
-- Splash Screens: https://cordova.apache.org/docs/en/latest/reference/cordova-plugin-splashscreen/
+Si deseas arrancar el proyecto en un emulador o dispositivo android
+> ionic cordova run android
+> ionic cordova run android --device
+
+Si deseas arrancar el proyecto en un emulador o dispositivo ios
+> ionic cordova run ios
+> ionic cordova run ios --device

@@ -20,6 +20,7 @@
     "@angular/platform-browser-dynamic": "^15.0.0",
     "@angular/router": "^15.0.0",
     "@ionic/angular": "^7.0.0",
+    "@ionic/cordova-builders": "^9.0.0",
     "cordova-android": "10.1.2",
     "cordova-ios": "6.3.0",
     "ionicons": "^7.0.0",
