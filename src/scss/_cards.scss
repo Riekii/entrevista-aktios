@@ -10,7 +10,7 @@
   .ice-cream{
     font-size: 8em;
     margin: 0 auto;
-    rotate: (67deg);
+    rotate: (66deg);
   }
   p{
     font-size: 2em;
@@ -22,4 +22,8 @@
   height: auto;
   display: block;
   margin: 0 auto;
+}
+
+.searchBar{
+  --border-radius: 15px;
 }

@@ -30,4 +30,18 @@ export class UtilsService {
     }
   }
 
+  public checkAge(fecha: Date): number {
+    const hoy: Date = new Date();
+    fecha = new Date(fecha);
+    let edad: number = hoy.getFullYear() - fecha.getFullYear();
+    if (
+      hoy.getMonth() < fecha.getMonth() ||
+      (hoy.getMonth() === fecha.getMonth() &&
+        hoy.getDate() < fecha.getDate())
+    ) {
+      edad--;
+    }
+    return edad;
+  }
+
 }

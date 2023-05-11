@@ -4,6 +4,7 @@ import { personDTO, populationDTO, populationListDTO } from 'src/interface/emple
 import { UtilsService } from '../utils/utils.service';
 import { ModalController } from '@ionic/angular';
 import { PersonDetailComponent } from './person-module/person-detail/person-detail.component';
+import { TranslateService } from '../services/translate.service';
 
 @Component({
   selector: 'app-home',
@@ -27,6 +28,7 @@ export class HomePage implements OnInit{
     private empleadosService: EmpleadosService,
     private utils: UtilsService,
     private modalCtrl: ModalController,
+    private translate: TranslateService
   ) {}
 
   ngOnInit(): void {
@@ -40,14 +42,17 @@ export class HomePage implements OnInit{
         let persons = resp.population.person;
         this.maxItems = persons.length;
         // Ordena por fecha de cumpleaños
-        persons.sort(this.utils.compareBirthday)
+        persons.sort(this.utils.compareBirthday);
         if(this.searchTerm){
           persons = this.search(this.searchTerm, persons);
           this.searching = true;
-          this.maxItems = persons.length;
         }
         else{
           this.searching = false;
+        }
+        if(!this.searchTerm){
+          this.searching = false;
+          this.itemsLeft = true;
         }
         this.maxItems = persons.length;
         this.personList = persons.slice(0, this.offset*this.pageItems);

@@ -1,38 +1,42 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-button (click)="dismissModal()">Cerrar</ion-button>
+      <ion-icon (click)="dismissModal()" class="backBtn" name="caret-back-circle-outline"></ion-icon>
     </ion-buttons>
-    <ion-title>Detalles</ion-title>
+    <ion-title class="titulo">Detalles</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-grid fixed>
     <ion-row>
-      <ion-col size="12">
-        <ion-label class="nombre bg-primary bg-opacity-25">{{person.name}} {{person.surname}} {{person.surname2}}</ion-label>
+      <ion-col class="ion-justify-content-center ion-nowrap ion-text-center shadow nombre" size="12">
+        <ion-text class="t-center ion-text-center">{{person.name}} {{person.surname}} {{person.surname2}}</ion-text>
       </ion-col>
       <ion-col size="12">
         <img class="userImg" [src]="utils.getImage(person.photoUrl)" alt="Imagen de usuario"> 
       </ion-col>
       <ion-col size="12">
-        <p class="fecha">{{person.datebirthday | date : "dd/MM/yyyy"}}</p>
+        <p class=" shadow fecha t-center ion-justify-content-center ion-nowrap ion-text-center">{{person.datebirthday | date : "dd/MM/yyyy"}} ({{utils.checkAge(person.datebirthday)}} años)</p>
+      </ion-col>
+      <ion-col size="6">
         <p class="idioma"><strong>Idioma: </strong>{{person.language}}</p>
-        <p class="sexo"><strong>Sexo: </strong>{{person.sexDescription}}</p>
       </ion-col>
-      <ion-col size="12">
-        <a href="tel:+{{person.phone}}"><strong>Tel: </strong>{{person.phone}}</a>
+      <ion-col size="6">
+        <p><strong>Sexo: </strong>{{person.sexDescription}}</p>
       </ion-col>
-      <ion-col size="12">
-        
+      <ion-col size="6">
+        <p><strong>País: </strong>{{person.countryDescription}}</p>
+      </ion-col>
+      <ion-col size="6">
+        <p><strong>Tel: </strong><a href="tel:+{{person.phone}}">{{person.phone}}</a></p>
       </ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>
 <ion-footer>
   <ion-toolbar>
-    <ion-title class="modificacion">
+    <ion-title class="modificacion t-center">
       <h6><strong>Ultima modificación</strong></h6>
       <h6>{{person.lastModification | date : "dd/MM/yyyy"}}</h6>
     </ion-title>
