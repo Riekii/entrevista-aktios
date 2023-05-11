@@ -17,14 +17,9 @@ export class PersonDetailComponent {
   ) {}
 
   ngOnInit() {
-    console.warn(this.person)
   }
 
   dismissModal(){
     this.modalCtrl.dismiss()
-  }
-
-  confirm(){
-
   }
 } 

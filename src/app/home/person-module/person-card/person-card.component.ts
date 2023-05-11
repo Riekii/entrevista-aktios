@@ -11,11 +11,7 @@ import { personDTO } from 'src/interface/empleado-dto';
 export class PersonCardComponent  implements OnInit {
 
   @Input('person') person!: personDTO;
-
-  public photoSrc = '';
-
-  public cardstate!: string;
-
+  
   constructor(
     public readonly utils: UtilsService
   ) { }
