@@ -27,7 +27,7 @@
     <ion-row *ngIf="desktop">
       <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="getPopulation()" class="searchBar"
       placeholder="Buscar por nombre, año, fecha o ubicación"></ion-searchbar>
-      <ion-col size="6" size-sm="3" (click)="openCard(person)" *ngFor="let person of personList">
+      <ion-col size="6" size-md="6" size-lg="3" (click)="openCard(person)" *ngFor="let person of personList">
         <app-person-card [person]="person"></app-person-card>
       </ion-col>
       <ion-infinite-scroll *ngIf="itemsLeft" (ionInfinite)="loadMoreCards($event)" position="bottom">
