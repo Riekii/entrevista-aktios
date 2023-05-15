@@ -27,3 +27,19 @@
 .searchBar{
   --border-radius: 15px;
 }
+
+.modalDetail .modal-dialog{
+  min-width: 100%;
+}
+
+.cardAnimated{
+  cursor: pointer;
+  transition: 0.5s;
+  &:hover{
+    background-color: rgb(52, 52, 52);
+    .nombre, .fecha{
+      color: white;
+
+    }
+  }
+}

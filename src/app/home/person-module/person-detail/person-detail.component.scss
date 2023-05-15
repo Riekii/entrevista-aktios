@@ -14,9 +14,19 @@
 
 .userImg{
     border-radius: 15px;
+    max-width: 300px;
+    &.desktop{
+        max-width: 200px;
+    }
 }
 
 .fecha{
     display: block;
     margin: 3vh auto;
+}
+
+.sexIcon{
+    font-size: 1.2em;
+    &.male{color: rgb(82, 176, 207);}
+    &.female{color: rgb(176, 67, 85);}
 }

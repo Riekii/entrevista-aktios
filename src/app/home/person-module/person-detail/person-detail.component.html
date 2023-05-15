@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header *ngIf="person">
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-icon (click)="dismissModal()" class="backBtn" name="caret-back-circle-outline"></ion-icon>
@@ -8,13 +8,13 @@
 </ion-header>
 
 <ion-content>
-  <ion-grid fixed>
+  <ion-grid fixed *ngIf="person">
     <ion-row>
       <ion-col class="ion-justify-content-center ion-nowrap ion-text-center shadow nombre" size="12">
         <ion-text class="t-center ion-text-center">{{person.name}} {{person.surname}} {{person.surname2}}</ion-text>
       </ion-col>
       <ion-col size="12">
-        <img class="userImg" [src]="utils.getImage(person.photoUrl)" alt="Imagen de usuario"> 
+        <img class="userImg" [class.desktop]="desktop"  [src]="utils.getImage(person.photoUrl)" alt="Imagen de usuario"> 
       </ion-col>
       <ion-col size="12">
         <p class=" shadow fecha t-center ion-justify-content-center ion-nowrap ion-text-center">{{person.datebirthday | date : "dd/MM/yyyy"}} ({{utils.checkAge(person.datebirthday)}} años)</p>
@@ -23,7 +23,7 @@
         <p class="idioma"><strong>Idioma: </strong>{{person.language}}</p>
       </ion-col>
       <ion-col size="6">
-        <p><strong>Sexo: </strong>{{person.sexDescription}}</p>
+        <p><strong>Sexo: </strong><ion-icon *ngIf="person.sex === 'H'" class="sexIcon" [class.male]="person.sex === 'H'" name="male"></ion-icon><ion-icon *ngIf="person.sex === 'M'" class="sexIcon" [class.female]="person.sex === 'M'" name="female"></ion-icon></p>
       </ion-col>
       <ion-col size="6">
         <p><strong>País: </strong>{{person.countryDescription}}</p>
@@ -34,7 +34,7 @@
     </ion-row>
   </ion-grid>
 </ion-content>
-<ion-footer>
+<ion-footer *ngIf="person && !desktop">
   <ion-toolbar>
     <ion-title class="modificacion t-center">
       <h6><strong>Ultima modificación</strong></h6>
